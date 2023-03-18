@@ -129,7 +129,7 @@ class ExpellStudent(Resource):
         jwt=get_jwt()
         if not  jwt.get("is_admin"):
             abort(403,message="unauthorized user")
-        student=StudentInfo.query.filter(StudentInfo.matric_no==matric_no).first
+        student=StudentInfo.query.filter(StudentInfo.matric_no==matric_no).first()
         db.session.delete(student)
         db.session.commit()
         return {"message":f"student with the {matric_no} has been rusticated"}
