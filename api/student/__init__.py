@@ -1,0 +1,1 @@
+from .views import student_namespace,reg_course_namespace
